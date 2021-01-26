@@ -11,11 +11,11 @@
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
-      <span class="sound">clap</span>
+      <span class="sound">hihat</span>
     </div>
     <div data-key="83" class="key">
       <kbd>S</kbd>
-      <span class="sound">hihat</span>
+      <span class="sound">clap</span>
     </div>
     <div data-key="68" class="key">
       <kbd>D</kbd>
@@ -47,8 +47,8 @@
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="83" src="sounds/clap.wav"></audio>
+  <audio data-key="65" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
   <audio data-key="70" src="sounds/openhat.wav"></audio>
   <audio data-key="71" src="sounds/boom.wav"></audio>
@@ -58,7 +58,19 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+  const playSound = (e) => {
+    const audioTrigger = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) //. = class
+    if (!audioTrigger) return
+    audioTrigger.currentTime=0;
+    audioTrigger.play()
+    key.classList.add('playing')
+    //Remove transition Effect
+    let removePlaying = () => {key.classList.remove('playing')}
+    setTimeout(removePlaying, 60)
+  }
+  //Starts Here
+  window.addEventListener('keydown', playSound)
 </script>
 
 
