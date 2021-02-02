@@ -59,6 +59,7 @@
 
 <script>
   const playSound = (e) => {
+    console.log(e)
     const audioTrigger = document.querySelector(`audio[data-key="${e.keyCode}"]`)
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) //. = class
     if (!audioTrigger) return

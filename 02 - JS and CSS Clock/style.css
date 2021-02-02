@@ -49,3 +49,21 @@ html {
     transition-timing-function: cubic-bezier(0.195, 2.03, 0.685, 1);
   }
 
+  .hour-hand{
+    transform-origin: 111%;
+    width: 40%;
+  }
+  .second-hand{
+    background: red;
+    height: 5px;
+  }
+  .dot{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: rgb(1, 0, 3);
+    border-radius: 50%;
+    margin-left: 141px;
+    margin-top: 148px;
+    z-index: 1;
+  }
